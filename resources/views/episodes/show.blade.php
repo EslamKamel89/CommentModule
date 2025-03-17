@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto ">
+        <div class="max-w-4xl mx-auto ">
             <livewire:comments.comments />
         </div>
     </div>
