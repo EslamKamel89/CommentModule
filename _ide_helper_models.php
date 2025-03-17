@@ -19,6 +19,17 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Article newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Article newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Article query()
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Article whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Article whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Article whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Article whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Article whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 	class Article extends \Eloquent {}
 }
@@ -31,6 +42,17 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode query()
+ * @property int $id
+ * @property string $name
+ * @property string $slug
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 	class Episode extends \Eloquent {}
 }
@@ -61,6 +83,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 	class User extends \Eloquent {}
 }
