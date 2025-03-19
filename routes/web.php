@@ -14,6 +14,6 @@ Route::view( 'profile', 'profile' )
 	->middleware( [ 'auth' ] )
 	->name( 'profile' );
 
-Route::get( '/articles/{article:slug}', ArticleController::class);
-Route::get( '/episodes/{episode:slug}', EpisodeController::class);
+Route::get( '/articles/{article:slug}', ArticleController::class)->name( 'articles.index' );
+Route::get( '/episodes/{episode:slug}', EpisodeController::class)->name( 'episodes.index' );
 require __DIR__ . '/auth.php';
