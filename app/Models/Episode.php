@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
  * 
@@ -22,6 +23,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
+ * @property-read int|null $comments_count
  * @mixin \Eloquent
  */
 class Episode extends Model {
@@ -31,4 +34,7 @@ class Episode extends Model {
 		'name',
 		'slug',
 	];
+	public function comments(): MorphMany {
+		return $this->morphMany( Comment::class, 'commentable' );
+	}
 }

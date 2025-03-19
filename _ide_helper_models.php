@@ -30,8 +30,45 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Article whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Article whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
+ * @property-read int|null $comments_count
  */
 	class Article extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property int|null $parent_id
+ * @property string $body
+ * @property string $commentable_type
+ * @property int $commentable_id
+ * @property string|null $deleted_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read Comment|null $children
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $commentable
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Comment> $parent
+ * @property-read int|null $parent_count
+ * @property-read \App\Models\User $user
+ * @method static \Database\Factories\CommentFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereBody($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereCommentableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereCommentableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereParentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUserId($value)
+ */
+	class Comment extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -53,6 +90,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
+ * @property-read int|null $comments_count
  */
 	class Episode extends \Eloquent {}
 }
@@ -84,6 +123,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
+ * @property-read int|null $comments_count
  */
 	class User extends \Eloquent {}
 }
