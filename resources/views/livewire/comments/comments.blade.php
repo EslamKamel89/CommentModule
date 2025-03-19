@@ -1,9 +1,11 @@
 <div>
 	<div
+		class="text-lg font-bold mb-4">{{ $comments }}
+	</div>
+	<div
 		class=" mx-auto  bg-white shadow-lg rounded-lg px-4 py-2">
 		<!-- Header -->
 		<h2 class="text-xl font-semibold mb-4">Comments</h2>
-
 		<!-- Comment Card -->
 		<div class="space-y-4">
 			<div

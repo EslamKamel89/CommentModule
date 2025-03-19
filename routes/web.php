@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\EpisodeController;
+use App\Models\Article;
 use Illuminate\Support\Facades\Route;
 
 Route::view( '/', 'welcome' );
@@ -16,4 +17,5 @@ Route::view( 'profile', 'profile' )
 
 Route::get( '/articles/{article:slug}', ArticleController::class)->name( 'articles.index' );
 Route::get( '/episodes/{episode:slug}', EpisodeController::class)->name( 'episodes.index' );
+
 require __DIR__ . '/auth.php';
