@@ -29,9 +29,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Article whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Article whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Article whereUpdatedAt($value)
- * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
  * @property-read int|null $comments_count
+ * @mixin \Eloquent
  */
 	class Article extends \Eloquent {}
 }
@@ -50,7 +50,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read Comment|null $children
- * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $commentable
+ * @property-read Model|\Eloquent $commentable
  * @property-read \Illuminate\Database\Eloquent\Collection<int, Comment> $parent
  * @property-read int|null $parent_count
  * @property-read \App\Models\User $user
@@ -67,6 +67,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereParentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUserId($value)
+ * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment parent()
  */
 	class Comment extends \Eloquent {}
 }
@@ -89,9 +91,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Episode whereUpdatedAt($value)
- * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
  * @property-read int|null $comments_count
+ * @mixin \Eloquent
  */
 	class Episode extends \Eloquent {}
 }
@@ -122,9 +124,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
- * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
  * @property-read int|null $comments_count
+ * @mixin \Eloquent
  */
 	class User extends \Eloquent {}
 }

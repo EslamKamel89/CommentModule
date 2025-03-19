@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-4xl mx-auto ">
-            <livewire:comments.comments />
+            <livewire:comments.comments :model="$episode" />
         </div>
     </div>
 </x-app-layout>
