@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 /**
- *
+ * 
  *
  * @property int $id
  * @property int $user_id
@@ -39,31 +39,32 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereParentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUserId($value)
+ * @method static Builder<static>|Comment onlyParent()
  * @mixin \Eloquent
  */
 class Comment extends Model {
-	/** @use HasFactory<\Database\Factories\CommentFactory> */
-	use HasFactory;
-	protected $fillable = [ 
-		'user_id',
-		'parent_id',
-		'body',
-		'commentable_type',
-		'commentable_id',
-	];
-	public function user(): BelongsTo {
-		return $this->belongsTo( User::class);
-	}
-	public function commentable(): MorphTo {
-		return $this->morphTo();
-	}
-	public function parent(): HasMany {
-		return $this->hasMany( Comment::class, 'parent_id' );
-	}
-	public function children(): BelongsTo {
-		return $this->belongsTo( Comment::class, 'parent_id' );
-	}
-	public function scopeParent( Builder $query ) {
-		$query->whereNull( 'parent_id' );
-	}
+    /** @use HasFactory<\Database\Factories\CommentFactory> */
+    use HasFactory;
+    protected $fillable = [
+        'user_id',
+        'parent_id',
+        'body',
+        'commentable_type',
+        'commentable_id',
+    ];
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
+    }
+    public function commentable(): MorphTo {
+        return $this->morphTo();
+    }
+    public function parent(): HasMany {
+        return $this->hasMany(Comment::class, 'parent_id');
+    }
+    public function children(): BelongsTo {
+        return $this->belongsTo(Comment::class, 'parent_id');
+    }
+    public function scopeOnlyParent(Builder $query) {
+        $query->whereNull('parent_id');
+    }
 }
