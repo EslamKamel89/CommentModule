@@ -67,8 +67,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereParentId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUserId($value)
+ * @method static Builder<static>|Comment onlyParent()
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment onlyParent()
+ * @property-read int|null $children_count
  */
 	class Comment extends \Eloquent {}
 }

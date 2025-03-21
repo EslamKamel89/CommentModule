@@ -40,6 +40,7 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUserId($value)
  * @method static Builder<static>|Comment onlyParent()
+ * @property-read int|null $children_count
  * @mixin \Eloquent
  */
 class Comment extends Model {
@@ -58,10 +59,10 @@ class Comment extends Model {
     public function commentable(): MorphTo {
         return $this->morphTo();
     }
-    public function parent(): HasMany {
-        return $this->hasMany(Comment::class, 'parent_id');
+    public function children(): HasMany {
+        return $this->hasMany(Comment::class, 'parent_id')->oldest();
     }
-    public function children(): BelongsTo {
+    public function parent(): BelongsTo {
         return $this->belongsTo(Comment::class, 'parent_id');
     }
     public function scopeOnlyParent(Builder $query) {
